@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter import messagebox
 from tkinter import font as tkFont
 
 
@@ -38,8 +37,6 @@ class JoiningFrame(tk.Frame):
         self.newactivitycombo.grid(row=8, column=2, sticky="NW")
         addButton = tk.Button(self,text="Add", command=self.addjoin)
         addButton.grid(row=8, column=3, sticky = "NW")
-    def saveData(self):
-        self.refreshData()
 
     def refreshData(self):
         c = self.parent.db.cursor()
@@ -74,6 +71,8 @@ class JoiningFrame(tk.Frame):
             c = self.parent.db.cursor()
             c.execute("INSERT INTO tblJoining Values (NULL, ?,?)",(self.selectedpersonid,selectedactivity[0]))
             self.parent.db.commit()
+            # call the function that loads the data
+            # into the joined list
             self.personChosen(None)
 
     def personChosen(self, e):

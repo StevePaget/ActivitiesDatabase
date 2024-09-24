@@ -37,6 +37,10 @@ class LoginFrame(tk.Frame):
         self.feedbacklabel.grid(row=8, column=0)
         self.columnconfigure(2, weight=1)
 
+        b3 = tk.Button(self, text="Cheat", command=self.cheat)
+        b3.grid(row=9, column=0)
+        self.rowconfigure(8,minsize=300)
+
     def keypressed(self,event):
         # they pressed return. have they entered a username yet?
         if len(self.unamebox.get())>0:
@@ -59,3 +63,7 @@ class LoginFrame(tk.Frame):
         else:
             self.feedbacklabel.config(text="Incorrect Login")
             return False
+        
+    def cheat(self):
+        self.parent.successfulLogin("scoogan")
+        return True
