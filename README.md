@@ -59,7 +59,7 @@ This is because it is created as soon as the program runs, before anyone has log
 
 Instead, we use a method called loadUp() which is run when the frame first appears on the screen. In this example use this to call refreshData() as soon as the frame loads, so we know we are always working with the latest data, in case the database contents have changed.
 
-This peopleform frame also contains examples of how tkinter uses stringVars to track what is happening inside textboxes. When the user types in in a box, the linked stringVar changes automatically. We can also use this to put values into the boxes.
+This peopleform frame also contains examples of how tkinter uses stringVars to track what is happening inside textboxes. When the user types in in a box, the linked stringVar changes automatically. We can also use this to insert values into the boxes.
 
 Finally, we have some button methods for saving data, changing the displayed record etc. These are quite specific to this example, but might be relevant to your own project.
 
