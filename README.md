@@ -50,7 +50,23 @@ The main.py file needs to contain attributes that all the frames might need to a
 A good example to look at is peopleform.py
 
 A typical frame is a class of type tk.Frame. It has an init method which sets up the controls on the form (the labels, text boxes, buttons etc)
-####The init section does not perform any database access, or try putting data into the textboxes.
+
+This init section also saves a link to self.parent. This is so that each frame can access attributes of main.py, such as the loaded database and the username of the whoever logged in.
+
+#### The init section does not perform any database access, or try putting data into the textboxes.
+
 This is because it is created as soon as the program runs, before anyone has logged in, and before we have even connected to the database.
 
-Instead, we use a method called loadUp() which is run when the frame first appears on the screen
+Instead, we use a method called loadUp() which is run when the frame first appears on the screen. In this example use this to call refreshData() as soon as the frame loads, so we know we are always working with the latest data, in case the database contents have changed.
+
+This peopleform frame also contains examples of how tkinter uses stringVars to track what is happening inside textboxes. When the user types in in a box, the linked stringVar changes automatically. We can also use this to put values into the boxes.
+
+Finally, we have some button methods for saving data, changing the displayed record etc. These are quite specific to this example, but might be relevant to your own project.
+
+#### The main things to note are that you need to make a class for each frame, and it needs a loadUp() method which runs whenever the page appears on screen.
+
+## Summary
+
+This is just one way of doing a multi-frame tkinter project, but it seems to avoid some of the difficulties students often encounter when trying to make entirely seperate tkinter windows.
+
+It's important to remember that the frames are working independently, so one frame doesn't know what is happening in another frame. If you want frames to communicate with each other, you either need to save that data in the database, or create an attribute in main.py which the frames can access via self.parent
