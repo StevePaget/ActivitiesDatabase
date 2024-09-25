@@ -43,7 +43,7 @@ It also triggers the loadUp() method of the desired frame. More on this later.
 This file is a demo, so it features a method that creates the database from scratch every time, and fills it with some sample data.
 Because of this, it might appear that any changes made to the database are not saved. They are saved, but they are also destroyed every time you reload the program. This is just for test purposes, so you obviously wouldn't do this in your final project.
 
-The main.py file needs to contain attributes that all the frames might need to access. In this demo, the only ones worth mentioning are self.db which is a connection to the database file, and self.loggedin, which is a record of the username of the person who logged in. Different screens might need to know who the curent user is.
+The main.py file needs to contain attributes that all the frames might need to access. In this demo, the only ones worth mentioning are self.db which is a connection to the database file, and self.loggedin, which is a record of the username of the person who logged in. This is because different screens might need to know who the curent user is.
 
 ## Making a frame
 
